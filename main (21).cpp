@@ -12,35 +12,34 @@ using namespace std;
 
 class demo
 {
-    int x,y;
-    static int z;
+    int a;
     public:
-    
-    void getdata()
+    demo()
     {
-       cout<<"\nEnter no.: ";
-       cin>>x>>y;
-       z++;
-        
+        a=10;
     }
-    
+    demo(int x)
+    {
+        a=x;
+    }
+    demo(demo &z)
+    {
+        a=z.a;
+    }
     void putdata()
     {
-        cout<<"\nx = "<<x<<"\ny = "<<y;
-        cout<<"\nstatic z = "<<z;
+        cout<<"\na is:"<<a;
     }
+    
 };
-
-int demo ::z;
- 
-
 
 int main()
 {
- demo aa,bb;
- aa.getdata();
- bb.getdata();
+ demo aa;
+ demo bb(20);
+ demo cc(aa);
  aa.putdata();
  bb.putdata();
+ cc.putdata();
     return 0;
 }
